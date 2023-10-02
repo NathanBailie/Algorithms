@@ -7,10 +7,11 @@ function quickSort(arr) {
     };
 
     // the middle element
-    // let  pivot = arr[Math.floor(arr.length / 2)];
+    let pivot = arr[Math.floor(arr.length / 2)];
 
     // random element
-    let pivot = arr[Math.floor(Math.random() * arr.length)];
+    // let pivot = arr[Math.floor(Math.random() * arr.length)];
+
     let less = [];
     let equal = [];
     let greater = [];
