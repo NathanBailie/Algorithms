@@ -30,6 +30,24 @@ function binarySearch(arr, target) {
 console.log(`Position: ${binarySearch(array, 10)}`);
 console.log(`Count: ${count}`);
 
+function recursiveBinarySearch(arr, target, start, end) {
+    let middle = Math.floor((start + end) / 2);
+    count += 1;
+
+    if (target === arr[middle]) {
+        return middle;
+    };
+
+    if (target < arr[middle]) {
+        return recursiveBinarySearch(arr, target, start, middle - 1);
+    } else {
+        return recursiveBinarySearch(arr, target, middle + 1, end);
+    };
+};
+
+console.log(`Position: ${recursiveBinarySearch(array, 6, 0, array.length)}`);
+console.log(`Count: ${count}`);
+
 // Time Complexity - O(log n)
 
 // One of the most efficient search algorithms. However, it requires the data to be sorted.
