@@ -6,7 +6,7 @@ Linear search is a simple algorithm for finding a target element in an array. Th
 
 ## Time Complexity
 
-Worst case: **O(n)**, where n is the number of elements in the array.
+Worst case: **O(n)**, where **n** is the number of elements in the array.
 
 ## Advantages
 
