@@ -30,21 +30,34 @@ Counting sort is an efficient sorting algorithm for integer data, especially whe
 ## Code
 
 ```javascript
-function countingSort(array) {
-	const max = Math.max(...array);
-	const count = new Array(max + 1).fill(0);
+function countingSort(arr) {
+	if (arr.length === 0) return null;
 
-	for (let i = 0; i < array.length; i++) count[array[i]]++;
+	let min = arr[0];
+	let max = arr[0];
 
-	let ind = 0;
+	// Find minimum and maximum
+	arr.forEach((_, i) => {
+		if (arr[i] > max) max = arr[i];
+		if (arr[i] < min) min = arr[i];
+	});
 
-	for (let i = 0; i < count.length; i++) {
-		while (count[i] > 0) {
-			array[ind++] = i;
-			count[i]--;
+	// Create a counting array with sizes from minimum to maximum value
+	const counts = new Array(max - min + 1).fill(0);
+
+	// Fill the counting array
+	arr.forEach((_, i) => counts[arr[i] - min]++);
+
+	// Clear the original array without creating a new one
+	arr.length = 0;
+
+	// Fill the array with sorted elements
+	counts.forEach((_, i) => {
+		for (let j = 0; j < counts[i]; j++) {
+			arr.push(i + min);
 		}
-	}
+	});
 
-	return array;
+	return arr;
 }
 ```
